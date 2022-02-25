@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//source/uniandes/cupi2/tiendadelibros/interfaz/DialogoRegistrar.java=ISO-8859-1
+encoding//source/uniandes/cupi2/tiendadelibros/interfaz/InterfazTiendaLibros.java=ISO-8859-1
+encoding//source/uniandes/cupi2/tiendadelibros/interfaz/PanelBodega.java=ISO-8859-1
+encoding//source/uniandes/cupi2/tiendadelibros/interfaz/PanelConsultas.java=ISO-8859-1
+encoding//source/uniandes/cupi2/tiendadelibros/interfaz/PanelExtension.java=ISO-8859-1
+encoding//source/uniandes/cupi2/tiendadelibros/interfaz/PanelImagen.java=ISO-8859-1
+encoding//source/uniandes/cupi2/tiendadelibros/mundo/Libro.java=ISO-8859-1
+encoding//source/uniandes/cupi2/tiendadelibros/mundo/Transaccion.java=ISO-8859-1
+encoding//test/source/uniandes/cupi2/tiendadelibros/test/LibroTest.java=ISO-8859-1
+encoding//test/source/uniandes/cupi2/tiendadelibros/test/TiendaDeLibrosTest.java=ISO-8859-1
+encoding//test/source/uniandes/cupi2/tiendadelibros/test/TransaccionTest.java=ISO-8859-1
+encoding/<project>=ISO-8859-1

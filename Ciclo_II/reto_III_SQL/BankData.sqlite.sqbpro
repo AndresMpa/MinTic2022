@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/home/andresmp/Escritorio/BankData.sqlite" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><current_tab id="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="842"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="AccountStatus"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="AccountStatus" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT
+	DISTINCT Career
+FROM
+	Client
+ORDER BY
+	Career ASC
+LIMIT 100;</sql><sql name="SQL 2">SELECT
+	DISTINCT Career,
+	count(id) as [Cantidad Clientes]
+FROM
+	Client
+GROUP BY
+	Career
+ORDER BY
+	[Cantidad Clientes] DESC,
+	Career
+LIMIT 100;
+</sql><sql name="SQL 3">SELECT
+	Card.Card
+FROM
+	Card
+LEFT JOIN
+	ClientCard
+ON
+	Card.id = ClientCard.idCard
+WHERE
+	ClientCard.idClient is NULL
+GROUP BY
+	Card.Card
+LIMIT 100;</sql><sql name="SQL 4">SELECT
+	AccountStatus.[Account Status],
+	count(Client.id) as [Cantidad Clientes]
+FROM
+	Client
+INNER JOIN
+	AccountStatus
+ON
+	Client.idAccountStatus = AccountStatus.id
+GROUP BY
+	AccountStatus.[Account Status]
+LIMIT 100;</sql><sql name="SQL 8">SELECT
+	Client.[First Name] || ' ' || Client.[Last Name] as [Nombre y apellido]
+FROM
+	ClientCard
+INNER JOIN
+	Client
+ON
+	ClientCard.idClient = Client.id
+WHERE
+	ClientCard.idCard like &quot;%CC&quot;
+GROUP BY
+	[Nombre y apellido]
+HAVING
+	count(ClientCard.idCard) = 1
+LIMIT 100;</sql><sql name="SQL 12">SELECT
+	Hometown.Hometown, round(avg(Client.Age), 2) as [Promedio Edad]
+FROM 
+	Client
+INNER JOIN
+	Hometown
+ON
+	Client.idHometown = Hometown.idHometown
+GROUP BY
+	Hometown.Hometown
+HAVING
+	round(avg(Client.Age), 2) &gt; 40
+ORDER BY
+	round(avg(Client.Age), 2) DESC,
+	Hometown.Hometown
+LIMIT 100;</sql><sql name="SQL 14">SELECT 
+	lower(substr(Client.mail, 0, instr(Client.mail, &quot;@&quot;))) as [Direccion], 
+	upper(substr(Client.mail, instr(Client.mail, &quot;@&quot;)+1, instr(Client.mail, &quot;.&quot;)-instr(Client.mail, &quot;@&quot;)-1)) as [Dominio],
+	Hometown.Hometown
+FROM
+	Client
+INNER JOIN
+	Hometown
+ON
+	Client.idHometown = Hometown.idHometown
+ORDER BY
+	[Direccion]
+LIMIT 100;</sql><current_tab id="6"/></tab_sql></sqlb_project>
